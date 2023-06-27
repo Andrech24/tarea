@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Estructuras
+
 struct Producto
 {
    int ID;
@@ -10,15 +10,10 @@ struct Producto
    char Nombre[30];
 };
 
-//Definir el numero maximo de productos
 #define MAX_PRODUCTO 100
-//Declarar un arreglo global de productos
 Producto inventario[MAX_PRODUCTO];
-
-//Variable global para un numero de productos
 int num_producto = 0;
 
-//Funciones
 
 void Agregar_Producto();
 void Mostrar_todos_los_productos();
@@ -68,18 +63,16 @@ int main()
    }while(opcion != 5);
 }
 
-
-
 void Agregar_Producto()
 {
-   if(num_producto < MAX_PRODUCTO) //Esto verifica si hay espacio en el inventario
+   if(num_producto < MAX_PRODUCTO) 
    {
       Producto agregar_producto;
 
       
       printf("\nIngrese el ID del producto: ");
       scanf("%d", &agregar_producto.ID);
-      getchar(); //Esta funcion es para limpiar el buffer de entrada, para asi poder utilizar correctamente el "fgets"
+      getchar(); 
       printf("Ingrese el nombre del producto: ");
       fgets(agregar_producto.Nombre, 30, stdin);
       printf("Ingrese la cantidad del producto: ");
@@ -87,8 +80,8 @@ void Agregar_Producto()
       printf("Ingrese el precio del producto: ");
       scanf("%f", &agregar_producto.Precio);
 
-      inventario[num_producto] = agregar_producto; //Agrega el nuevo producto al arreglo del "inventario"
-      num_producto++; //Aumenta el numero de productos
+      inventario[num_producto] = agregar_producto; 
+      num_producto++; 
 
       
       printf("\n\nEl producto se agrego correctamente.");
@@ -125,7 +118,7 @@ void Mostrar_todos_los_productos()
 void Actualizar_Productos()
 {
    int ID;
-   int encontrar = -1; //Almacena el indice del articulo por si se encuentra o se establece en -1 en caso contrario
+   int encontrar = -1; 
 
    
    printf("\nIngrese el ID del producto: ");
@@ -204,3 +197,4 @@ void Salir_del_Programa()
    printf("Gracias por usar el sistema de inventario.");
    exit(0);
 }
+
